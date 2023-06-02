@@ -1,0 +1,42 @@
+version: "3.4"
+services:
+  gs-neuromorphic:
+    tty: true
+    image: "eduardomatoss/gs-neuromorphic"
+    stdin_open: true
+    build:
+      context: .
+      target: "development"
+    volumes:
+      - ".:/app"
+    environment:
+      - ENV_FOR_DYNACONF=development
+      - LOG_LEVEL=INFO
+      - ACCESS_LOG=True
+      - DATABASE_URL=postgres-db
+      - DATABASE_NAME=postgres
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_PORT=5432
+    ports:
+      - "8501:8501"
+    networks:
+      - db_nw
+
+  postgres-db:
+    image: postgres:11
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    networks:
+      - db_nw
+
+networks:
+  db_nw:
+    driver: bridge
+
+volumes:
+  postgres-db:
