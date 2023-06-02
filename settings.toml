@@ -1,0 +1,15 @@
+[default]
+default_log_level="INFO"
+default_access_log="True"
+
+request_ssl_verify="True"
+request_default_user_agent="gs-neuromorphic"
+
+thingspeak_api_url="https://api.thingspeak.com"
+
+[test]
+
+[qa]
+
+[prod]
+default_access_log="False"
