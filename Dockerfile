@@ -4,6 +4,8 @@ WORKDIR /app
 
 EXPOSE 8501
 
+RUN apt-get update && apt-get install libgomp1
+
 COPY pyproject.toml .
 RUN pip install poetry
 

@@ -16,6 +16,7 @@ alembic = "^1.10.3"
 dataclasses-json = "^0.5.7"
 seaborn = "^0.12.2"
 scikit-learn = "^1.2.2"
+lightgbm = "^3.3.5"
 
 
 [tool.poetry.group.dev.dependencies]
